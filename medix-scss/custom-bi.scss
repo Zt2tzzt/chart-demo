@@ -1,0 +1,167 @@
+
+@mixin bordr {
+	border: 1px solid rgba(0, 244, 253, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 117, 255, 0.06);
+}
+
+.bi-title {
+    /* border: 1px solid #0f553c; */
+	font-weight: 600;
+    margin-top: -20px;
+    font-family: cursive;
+    font-size: 55px;
+	color:#00f3fc;
+}
+
+.bi-panel {
+	display: flex;
+	flex-direction: column;
+
+	.bi-panel-row1 {
+		// background-color: red;
+		flex: 2;
+		display: flex;
+
+		.row1-col1 {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+
+			.row1-col1-td {
+				flex: 1;
+				display: flex;
+				height: 100%;
+				@include bordr();
+
+				.zt-table {
+					flex: 1;
+					// display: flex;
+					// justify-content: center;
+				}
+			}
+		}
+
+		.row1-col2 {
+			flex: 2;
+			display: flex;
+			flex-direction: column;
+
+			.row1-col2-textarea {
+				display: flex;
+				align-items: center;
+				height: 100px;
+				margin-bottom: 10px;
+				@include bordr();
+			}
+
+			.row1-col2-china-map {
+				flex: 1;
+				// position: relative;
+				@include bordr();
+				background: url("img/Attachment$Images$bg_map.png") no-repeat center;
+				background-size: cover;
+
+				.mx-dataview {
+					width: 100%;
+					height: 100%;
+
+					.mx-dataview-content {
+						width: 100%;
+						height: 100%;
+
+						.widget-hello-world {
+							
+							.ztmap > div {
+								display: flex;
+								// background-color: red;
+							}
+						}
+					}
+
+				}
+
+			}
+		}
+
+		.row1-col3 {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+
+			.row1-col3-td {
+				@include bordr();
+				flex: 1;
+			}
+		}
+	}
+
+	.bi-panel-row2 {
+		// background-color: #00f3fc;
+		flex: 1;
+		display: flex;
+		// align-items: center;
+
+		.row2-col1 {
+			flex: 1;
+			// display: flex;
+			// flex-direction: column;
+
+			.row2-col1-td {
+				@include bordr();
+			}
+		}
+
+		.row2-col2 {
+			flex: 2;
+
+			/* 维修明细表格样式 */
+			.maintain-detail-table	{
+				@include bordr();
+				height: 100%;
+
+				.table{
+					background-color: transparent;
+					// @include bordr();
+					color: #909aa5;
+
+					.table-content{
+						height: 100%;
+						background-color: transparent;
+
+						.th{
+							background-color: transparent;
+						 }
+
+					}
+					.pagination-bar{
+						color: #909aa5;
+					}
+				}
+			}
+		}
+
+		.row2-col3 {
+			flex: 1;
+			// display: flex;
+			// flex-direction: column;
+
+			.row2-col3-td {
+				@include bordr();
+			}
+		}
+	}
+}
+
+
+
+.max-container {
+	background-image: url("img/Attachment$Images$bigscreen_bg.png");
+	background-size: cover;
+	/* height: 100%; */
+    /* width: 100%; */
+    // background-repeat: no-repeat;
+}
+
+
+
+

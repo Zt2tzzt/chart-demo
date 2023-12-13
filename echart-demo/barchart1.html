@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bar chart</title>
+  </head>
+  <body>
+    <div id="main" style="height: 600px"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+      window.onload = function () {
+        const myChart = echarts.init(document.getElementById('main'))
+
+        const option = {
+          // backgroundColor: 'rgba(255, 0, 0, 0.1)',
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              // Use axis to trigger tooltip
+              type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+            }
+          },
+          legend: {
+            show: true,
+            icon: 'rect',
+            bottom: 0,
+            textStyle: {
+              color: '#c0c1cb',
+              fontSize: 18
+            },
+            itemWidth: 24,
+            itemHeight: 24,
+            itemGap: 150
+          },
+          grid: {
+            show: true,
+            top: 0,
+            left: 0,
+            right: 0,
+            containLabel: true,
+            // backgroundColor: '#ccc'
+            borderWidth: 0
+          },
+          xAxis: {
+            type: 'value',
+            axisLine: {
+              show: false
+            },
+            axisLabel: {
+              // margin: 30,
+              show: true,
+              fontSize: 16
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                type: 'dashed',
+                color: '#cfcfcf',
+                width: 1
+              }
+            }
+          },
+          yAxis: {
+            // boundaryGap: false,
+            type: 'category',
+            axisLine: {
+              show: false
+            },
+            axisTick: {
+              show: false
+            },
+            axisLabel: {
+              show: true,
+              fontSize: 16
+            },
+            data: [
+              '东莞LTP',
+              '扬州LTP',
+              '驻马店LTP',
+              '济南LOM',
+              '乌鲁木齐LoM',
+              '西安LoM',
+              '东莞LTP',
+              '东莞LTP',
+              '东莞LTP'
+            ].reverse()
+          },
+          series: [
+            {
+              name: 'LTP库存',
+              type: 'bar',
+              stack: 'total',
+              barWidth: 26,
+              itemStyle: {
+                color: '#5cd6b1',
+                shadowColor: '#7c98fc',
+                shadowBlur: 10
+              },
+              data: [320, 302, 301, 334, 390, 330, 320, 320, 320]
+            },
+            {
+              name: '在途库存',
+              type: 'bar',
+              stack: 'total',
+              barWidth: 26,
+              itemStyle: {
+                color: '#ffc978',
+                shadowColor: '#7c98fc',
+                shadowBlur: 8
+              },
+              data: [120, 132, 101, 134, 90, 230, 210, 320, 320]
+            },
+            {
+              name: 'LOM库存',
+              type: 'bar',
+              stack: 'total',
+              itemStyle: {
+                color: '#7c98fc',
+                shadowColor: '#7c98fc',
+                shadowBlur: 10
+              },
+              data: [220, 182, 191, 234, 290, 330, 310, 320, 320]
+            }
+          ]
+        }
+
+        myChart.setOption(option)
+      }
+    </script>
+  </body>
+</html>

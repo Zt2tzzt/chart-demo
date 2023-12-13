@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bar chart 1</title>
+  </head>
+  <body>
+    <div id="main" style="height: 600px"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+      window.onload = function () {
+        const myChart = echarts.init(document.getElementById('main'))
+
+        const option = {
+          // backgroundColor: 'rgba(255, 0, 0, 0.1)',
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              type: 'cross',
+              crossStyle: {
+                color: '#999'
+              }
+            }
+          },
+          grid: {
+            show: true,
+            left: `5%`,
+            right: 0,
+            containLabel: true,
+            // backgroundColor: '#ccc'
+            borderWidth: 0
+          },
+          legend: {
+            show: true,
+            bottom: 0,
+            textStyle: {
+              color: '#c0c1cb',
+              fontSize: 18
+            },
+            data: [
+              {
+                name: '高库龄库存',
+                icon: 'roundRect'
+              },
+              {
+                name: '正常库存',
+                icon: 'roundRect'
+              },
+              {
+                name: '可售库存天数'
+              }
+            ],
+            itemGap: 120
+          },
+          xAxis: {
+            // boundaryGap: false,
+            type: 'category',
+            data: ['202308', '202308', '202308'],
+            axisPointer: {
+              type: 'shadow'
+            },
+            axisLine: {
+              show: false
+            },
+            axisTick: {
+              show: false
+            },
+            axisLabel: {
+              // margin: 30,
+              show: true,
+              fontSize: 16
+            }
+          },
+          yAxis: [
+            {
+              type: 'value',
+              name: '百万元',
+              nameTextStyle: {
+                align: 'right',
+                fontSize: 16
+              },
+              min: 0,
+              max: 60,
+              axisLine: {
+                show: false
+              },
+              axisTick: {
+                show: false
+              },
+              axisLabel: {
+                show: true,
+                fontSize: 16
+              },
+              splitLine: {
+                show: true,
+                lineStyle: {
+                  type: 'dashed',
+                  color: '#cfcfcf',
+                  width: 1
+                }
+              }
+            },
+            {
+              type: 'value',
+              name: '天',
+              nameTextStyle: {
+                align: 'left',
+                fontSize: 16
+              },
+              min: 0,
+              max: 60,
+              axisLine: {
+                show: false
+              },
+              axisTick: {
+                show: false
+              },
+              axisLabel: {
+                show: true,
+                fontSize: 16
+              },
+              splitLine: {
+                show: false
+              }
+            }
+          ],
+          series: [
+            {
+              name: '高库龄库存',
+              type: 'bar',
+              stack: 'x',
+              barWidth: 100,
+              itemStyle: {
+                color: '#5cd6b1'
+              },
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + ' 百万'
+                }
+              },
+              data: [38, 20, 42]
+            },
+            {
+              name: '正常库存',
+              type: 'bar',
+              itemStyle: {
+                color: '#ffc978'
+              },
+              stack: 'x',
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + ' 百万'
+                }
+              },
+              data: [2, 8, 11]
+            },
+            {
+              name: '可售库存天数',
+              type: 'line',
+              itemStyle: {
+                color: '#7c98fc'
+              },
+              yAxisIndex: 1,
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + '天'
+                }
+              },
+              areaStyle: {
+                color: {
+                  type: 'linear',
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: '#7c98fc'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgba(255, 255, 255, 0)'
+                    }
+                  ]
+                }
+              },
+              data: [30, 16, 44]
+            }
+          ]
+        }
+
+        myChart.setOption(option)
+      }
+    </script>
+  </body>
+</html>

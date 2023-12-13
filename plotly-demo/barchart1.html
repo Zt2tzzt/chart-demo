@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>plotly bar chart 1</title>
+  </head>
+  <body>
+    <div id="tester" style="height: 600px; background-color: bisque"></div>
+
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <script>
+      let trace1 = {
+        x: ['分类1', '分类2', '分类3'],
+        y: [20, 14, 25],
+        text: [20, 14, 25],
+        name: '柱状图1',
+        type: 'bar',
+        width: [0.5, 0.5, 0.5], // 设置每个柱子的宽度
+        marker: {
+          color: '#5cd6b1' // 设置条形图的颜色
+        }
+      }
+
+      let trace2 = {
+        x: ['分类1', '分类2', '分类3'],
+        y: [6, 5, 9],
+        text: [6, 5, 9],  // 数值数据作为文本
+        name: '柱状图2',
+        width: [0.5, 0.5, 0.5], // 设置每个柱子的宽度
+        type: 'bar',
+        marker: {
+          color: '#ffc978' // 设置条形图的颜色
+        }
+      }
+
+      let trace3 = {
+        x: ['分类1', '分类2', '分类3'],
+        y: [8, 6, 10],
+        name: '折线图1',
+        type: 'scatter', // 将类型设置为 'scatter' 以创建折线图
+        mode: 'lines+markers', // 叠加线和点
+        yaxis: 'y2',
+        fill: 'tozeroy', // 填充到 y=0
+        fillcolor: '#abbcf855', // 使用想要的颜色和透明度填充
+        marker: {
+          color: '#abbcf8', // 设置条形图的颜色
+          width: 2
+        }
+      }
+
+      let data = [trace3, trace1, trace2]
+
+      let layout = {
+        // title: '柱形图&折线图',
+        autoSize: true,
+        barmode: 'stack',
+        margin: {
+          l: 40, // left margin
+          r: 40, // right margin
+          b: 0, // bottom margin
+          t: 20, // top margin
+          pad: 4
+        },
+        annotations: [
+          {
+            text: '百万元', // 这是你的标题
+            showarrow: false,
+            xref: 'paper',
+            yref: 'paper',
+            x: 0.01, // x 位置，从左侧计算
+            y: 1, // y 位置，从下方计算
+            xanchor: 'right', // 文字左对齐
+            yanchor: 'bottom' // 文字底部对齐
+          },
+          {
+            text: '天', // 这是你的标题
+            showarrow: false,
+            xref: 'paper',
+            yref: 'paper',
+            x: 1, // x 位置，从左侧计算
+            y: 1, // y 位置，从下方计算
+            xanchor: 'left', // 文字左对齐
+            yanchor: 'bottom' // 文字底部对齐
+          }
+        ],
+        xaxis: { title: '' },
+        yaxis: { title: '' },
+        yaxis2: {
+          title: '',
+          overlaying: 'y',
+          tickformat: '.0%', // 添加百分号
+          side: 'right'
+        },
+        legend: {
+          // y: 0.5,
+          yref: 'paper',
+          font: { size: 15 },
+          itemspacing: 200, // 图例之间的间距，单位为像素
+
+          x: 0.5, // 图例在 x 轴的位置
+          y: -0.1, // 图例在 y 轴的位置
+          xanchor: 'center', // 将图例的锚点设置为中心，以使其居中
+          yanchor: 'top', // 将图例的锚点设置在顶部，使其在底部对齐
+          orientation: 'h' // 设置图例的方向为横向
+        }
+      }
+
+      let config = { responsive: true }
+      Plotly.newPlot('tester', data, layout, config)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pie chart</title>
+  </head>
+  <body>
+    <div id="main" style="height: 600px"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+      window.onload = function () {
+        const myChart = echarts.init(document.getElementById('main'))
+
+        const option = {
+          // backgroundColor: 'rgba(255, 0, 0, 0.1)',
+          legend: {
+            top: 'bottom'
+          },
+          grid: {
+            show: true,
+            top: 0,
+            left: 0,
+            right: 0,
+            containLabel: true,
+            // backgroundColor: '#ccc',
+            borderWidth: 0
+          },
+          legend: {
+            show: true,
+            icon: 'rect',
+            bottom: 0,
+            textStyle: {
+              color: '#c0c1cb',
+              fontSize: 18
+            },
+            itemWidth: 24,
+            itemHeight: 24,
+            itemGap: 100
+          },
+          series: [
+            {
+              name: 'pie chart',
+              type: 'pie',
+              radius: ['20%', '75%'],
+              center: ['50%', '45%'],
+              roseType: 'area',
+              label: {
+                show: true,
+                formatter: '{c}'
+              },
+              labelLine: {
+                normal: {
+                  length: 10,
+                  length2: 55,
+                  borderType: 'dotted',//dotted 虚线
+                  lineStyle: {
+                    type: 'dashed'
+                  }
+                }
+              },
+              itemStyle: {
+                borderRadius: 8
+              },
+              data: [
+                {
+                  value: 8,
+                  name: '2A',
+                  itemStyle: {
+                    color: '#5cd6b1'
+                  },
+                  label: {
+                    normal: {
+                      textStyle: {
+                        color: '#5cd6b1'
+                      }
+                    }
+                  }
+                },
+                {
+                  value: 5,
+                  name: '2B',
+                  itemStyle: { color: '#ffc978' },
+                  label: {
+                    normal: {
+                      textStyle: {
+                        color: '#ffc978'
+                      }
+                    }
+                  }
+                },
+                {
+                  value: 7,
+                  name: '1A',
+                  itemStyle: { color: '#7c98fc' },
+                  label: {
+                    normal: {
+                      textStyle: {
+                        color: '#7c98fc'
+                      }
+                    }
+                  }
+                },
+                {
+                  value: 10,
+                  name: '1B',
+                  itemStyle: { color: '#dd95ff' },
+                  label: {
+                    normal: {
+                      textStyle: {
+                        color: '#dd95ff'
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+
+        myChart.setOption(option)
+      }
+    </script>
+  </body>
+</html>

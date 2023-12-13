@@ -1,0 +1,33 @@
+// -------------------------------- 混入 ------------------------------
+// 标题栏
+@mixin area-head($marginLeft: 15px) {
+  position: relative;
+  font-size: 22px;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #393d5e;
+  line-height: 75px;
+
+  height: 75px;
+  margin: 0px 0px 15px 0;
+  padding-left: $marginLeft;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(66, 69, 101, 0.5);
+}
+
+// 标题栏图标
+@mixin area-head-icon() {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  display: inline-block;
+  width: 4px;
+  height: 30px;
+  background: #2a6ec2;
+  border-radius: 0px 0px 0px 0px;
+  opacity: 1;
+}
+// -------------------------------- 混入 ------------------------------

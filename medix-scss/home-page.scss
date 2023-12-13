@@ -1,0 +1,76 @@
+
+.home-page {
+  background: center / cover no-repeat url('./assets/home-page-bg.png') skyblue;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .btn-area {
+    width: 500px;
+    height: 470px;
+    background: linear-gradient(209deg, #CDEAFF 0%, #CBE9FF 0%, #FFFFFF 100%);
+    box-shadow: inset 0px 4px 12px 0px #FFFFFF, 0px 4px 14px 0px rgba(41,161,254,0.33);
+    border-radius: 60px 60px 60px 60px;
+    opacity: 1;
+    &:hover {
+      cursor: pointer;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    %img-area {
+      margin-top: 63px;
+      width: 175.91px;
+      height: 216.22px;
+    }
+
+    %title {
+      background: linear-gradient(0deg, #003F8C 0%, #347AD0 100%);
+      -webkit-background-clip: text;
+      background-clip: text; /* Standard syntax */
+      -webkit-text-fill-color: transparent;
+    }
+
+    .title1 {
+      height: 34px;
+      line-height: 34px;
+      font-size: 34px;
+      font-weight: bold;
+      @extend %title;
+    }
+
+    .title2 {
+      height: 24px;
+      line-height: 24px;
+      font-size: 24px;
+      font-weight: 400;
+      @extend %title;
+      margin-bottom: 55px;
+    }
+
+    .btn-img1 {
+      @extend %img-area;
+      background: center / cover no-repeat url('./assets/home-page-btn1.png');
+    }
+    .btn-img2 {
+      @extend %img-area;
+      background: center / cover no-repeat url('./assets/home-page-btn2.png');
+    }
+    .btn-img3 {
+      @extend %img-area;
+      background: center / cover no-repeat url('./assets/home-page-btn3.png');
+    }
+  }
+
+}

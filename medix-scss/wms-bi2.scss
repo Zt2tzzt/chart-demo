@@ -1,0 +1,256 @@
+.content2-wrapper {
+  // background-color: bisque;
+  margin: 0;
+  display: flex;
+
+  .control-box {
+    flex: 1;
+    background-color: #fff;
+    padding: 10px 10px;
+
+    .select-area {
+      height: 80px;
+      background-color: #dfeeff;
+      margin-bottom: 20px;
+
+      display: flex;
+      align-items: center;
+
+      .select-box {
+        margin: 0;
+
+        & > label {
+          font-size: 18px;
+          font-family: PingFang SC;
+          font-weight: bold;
+          color: #393d5e;
+          padding-right: 0;
+        }
+      }
+    }
+
+    .dis-head {
+      height: 40px;
+      background-color: #dfeeff;
+      margin-bottom: 15px;
+
+      display: flex;
+      align-items: center;
+
+      .dis-text {
+        font-size: 18px;
+        font-family: PingFang SCC;
+        font-weight: bold;
+        color: #393d5e;
+        padding-left: 8px;
+      }
+    }
+
+    .btn-area {
+      display: flex;
+      justify-content: space-between;
+
+      %btn {
+        flex: 1;
+        height: 36px;
+
+        font-size: 14px;
+        font-family: PingFang SC;
+        font-weight: 400;
+
+        background-color: #ffffff;
+        border: 1px solid #003f8c;
+        color: #003f8c;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn1 {
+        @extend %btn;
+        margin-right: 10px;
+      }
+
+      .btn2 {
+        @extend %btn;
+      }
+
+      .btn-active {
+        background-color: #003f8c;
+        color: #ffffff;
+        border: 0;
+      }
+    }
+  }
+
+  .content-box {
+    flex: 6;
+    // background-color: azure;
+    padding: 20px;
+    box-sizing: border-box;
+
+    .cus-chart1 {
+      // background-color: blanchedalmond;
+      display: flex;
+      flex-direction: column;
+
+      %sub-chart {
+        flex: 1;
+        padding: 20px;
+        box-sizing: border-box;
+        background-position: center;
+        background-size: auto;
+        background-repeat: no-repeat;
+
+        width: 503px;
+        height: 143px;
+        // background: #FFFFFF;
+        box-shadow: 0px 4px 14px 0px rgba(141,141,141,0.25);
+        border-radius: 10px 10px 10px 10px;
+        // opacity: 1;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      @mixin sub-chart-line($textColor: #e70e00, $iconPath) {
+        .sub-chart-line1 {
+          flex: 1;
+          // background-color: lavender;
+
+          font-size: 20px;
+          font-family: PingFang SC;
+          font-weight: bold;
+          color: #393d5e;
+        }
+        .sub-chart-line2 {
+          flex: 1;
+          // background-color: palegreen;
+
+          display: flex;
+          justify-content: end;
+          align-items: end;
+
+          .number {
+            font-size: 28px;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: $textColor;
+            line-height: 28px;
+            margin-right: 2px;
+          }
+          .unit {
+            font-size: 16px;
+            font-family: PingFang SC;
+            line-height: 16px;
+            color: $textColor;
+          }
+        }
+        .sub-chart-line3 {
+          flex: 1;
+          // background-color: lightblue;
+
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+
+          .sub-icon {
+            width: 31px;
+            height: 31px;
+            background: center no-repeat url($iconPath);
+          }
+          .detail-text {
+            font-size: 16px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: #393d5e;
+            line-height: 16px;
+          }
+        }
+      }
+
+      .sub-chart1 {
+        // background-color: lavender;
+        margin-bottom: 20px;
+        background-image: url('./assets/sub-chart-bg1.png');
+
+        @extend %sub-chart;
+        @include sub-chart-line($iconPath: './assets/sub-chart-icon1.png');
+      }
+      .sub-chart2 {
+        // background-color: palegreen;
+        margin-bottom: 20px;
+        background-image: url('./assets/sub-chart-bg2.png');
+
+        @extend %sub-chart;
+        @include sub-chart-line($textColor: #00ad2d, $iconPath: './assets/sub-chart-icon2.png');
+      }
+      .sub-chart3 {
+        // background-color: lightblue;
+        background-image: url('./assets/sub-chart-bg1.png');
+
+        @extend %sub-chart;
+        @include sub-chart-line($iconPath: './assets/sub-chart-icon3.png');
+      }
+    }
+
+    .chart-wrapper {
+      // flex: 1;
+      // height: 510px;
+      height: 470px;
+      background-color: #fff;
+      box-shadow: 0px 4px 14px 0px rgba(141, 141, 141, 0.25);
+      border-radius: 10px 10px 10px 10px;
+      padding: 0 20px 20px;
+      box-sizing: border-box;
+      margin-left: 20px;
+      &:first-child {
+        margin-left: 0;
+      }
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .chart-area-head {
+        @include area-head;
+        width: 100%;
+
+        &::before {
+          @include area-head-icon;
+        }
+      }
+
+      .chart-content {
+        height: calc(100% - 90px);
+
+        .th {
+          background-color: #DFEEFF;
+        }
+
+        .tr:nth-child(2n) {
+          .td {
+            background-color: #fff;
+          }
+        }
+
+        .tr:nth-child(2n + 1) {
+          .td {
+            background-color: #F6F6F6;
+          }
+        }
+
+        /* .td {
+          background-color: red;
+        }
+
+        .td:nth-child(-2n + 1), td:nth-child(-2n + 2), td:nth-child(-2n + 3), > td:nth-child(-2n + 4) {
+          background-color: #fff;
+        } */
+
+
+      }
+    }
+  }
+}

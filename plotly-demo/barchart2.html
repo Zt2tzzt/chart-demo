@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>plotly bar chart2</title>
+  </head>
+  <body>
+    <div id="tester" style="height: 600px; background-color: bisque"></div>
+
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <script>
+      let trace1 = {
+        type: 'bar',
+        width: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5], // 设置每个柱子的宽度
+        name: 'LTP库存',
+        x: [10, 7, 12, 13, 11, 8],
+        textposition: 'auto', // 文本显示位置自动调整
+        hoverinfo: 'none', // 鼠标悬停时不显示附加信息
+        textfont: {
+          // family: 'Arial',
+          size: 12,
+          color: '#fff' // 设置文本颜色为蓝色
+        },
+        y: ['东莞LTP', '扬州LTP', '驻马店LTP', '济南LOM', '乌鲁木齐LOM', '西安LOM'],
+        texttemplate: '%{x}',
+        orientation: 'h',
+        marker: {
+          color: '#5cd6b1' // 设置条形图的颜色
+        }
+      }
+
+      let trace2 = {
+        type: 'bar',
+        width: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5], // 设置每个柱子的宽度
+        name: '在途车库',
+        x: [6, 3, 7, 4, 5, 6],
+        textposition: 'auto', // 文本显示位置自动调整
+        hoverinfo: 'none', // 鼠标悬停时不显示附加信息
+        textfont: {
+          // family: 'Arial',
+          size: 12,
+          color: '#fff' // 设置文本颜色为蓝色
+        },
+        y: ['东莞LTP', '扬州LTP', '驻马店LTP', '济南LOM', '乌鲁木齐LOM', '西安LOM'],
+        texttemplate: '%{x}',
+        orientation: 'h',
+        marker: {
+          color: '#ffc978' // 设置条形图的颜色
+        }
+      }
+
+      let trace3 = {
+        type: 'bar',
+        width: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5], // 设置每个柱子的宽度
+        name: '在途车库',
+        x: [6, 3, 7, 4, 5, 6],
+        y: ['东莞LTP', '扬州LTP', '驻马店LTP', '济南LOM', '乌鲁木齐LOM', '西安LOM'],
+        texttemplate: '%{x}',
+        textposition: 'auto', // 文本显示位置自动调整
+        hoverinfo: 'none', // 鼠标悬停时不显示附加信息
+        textfont: {
+          // family: 'Arial',
+          size: 12,
+          color: '#fff' // 设置文本颜色为蓝色
+        },
+        orientation: 'h',
+        marker: {
+          color: '#7c98fc' // 设置条形图的颜色
+        }
+      }
+
+      var data = [trace1, trace2, trace3]
+
+      let layout = {
+        // title: '柱形图&折线图',
+        autoSize: true,
+        barmode: 'stack',
+        margin: {
+          l: 80, // left margin
+          r: 50, // right margin
+          b: 0, // bottom margin
+          t: 0, // top margin
+          pad: 4
+        },
+        annotations: [
+          {
+            texttemplate: '%{x}',
+            showarrow: false,
+            xref: 'paper',
+            yref: 'paper',
+            x: 1, // x 位置，从左侧计算
+            y: 0, // y 位置，从下方计算
+            xanchor: 'left', // 文字左对齐
+            yanchor: 'bottom' // 文字底部对齐
+          }
+        ],
+        legend: {
+          yref: 'paper',
+          font: { size: 14 },
+          itemwidth: 0,
+
+          x: 0.5, // 图例在 x 轴的位置
+          y: -0.1, // 图例在 y 轴的位置
+          xanchor: 'auto', // 将图例的锚点设置为中心，以使其居中
+          yanchor: 'top', // 将图例的锚点设置在顶部，使其在底部对齐
+          orientation: 'h' // 设置图例的方向为横向
+        }
+      }
+
+      let config = { responsive: true }
+
+      Plotly.newPlot('tester', data, layout, config)
+    </script>
+  </body>
+</html>

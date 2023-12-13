@@ -1,0 +1,225 @@
+
+// -------------------------------- 混入 ------------------------------
+// 按钮区域
+@mixin bdp-btn($bgc: #fff) {
+  height: 90px;
+  background-color: $bgc;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.13);
+  border-radius: 10px 10px 10px 10px;
+  opacity: 1;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+// 按钮字体
+@mixin bdp-btn-text($textColor: #393d5e) {
+  font-size: 20px;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: $textColor;
+  line-height: 90px;
+  margin-left: 70px;
+}
+
+// 按钮图标
+@mixin bdp-btn-icon($iconPath: './assets/btn-icon-active.png') {
+  content: url($iconPath);
+  display: inline-block;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+// -------------------------------- 混入 ------------------------------
+
+// 下方仪表板
+.content1-wrapper {
+
+  // 第一行
+  .content-line1 {
+    // background-color: skyblue;
+    margin: 20px 0 20px;
+    padding: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+
+    // 事业部
+    .business-division-part {
+      flex: 1.2;
+      background-color: #fff;
+      height: 430px;
+      box-shadow: 0px 4px 14px 0px rgba(141, 141, 141, 0.25);
+      border-radius: 10px 10px 10px 10px;
+      opacity: 1;
+      padding: 0 24px;
+      // margin-right: 20px;
+      box-sizing: border-box;
+
+      .bdp-area-head {
+        @include area-head;
+
+        &::before {
+          @include area-head-icon;
+        }
+      }
+
+
+      .bdp-btn-active {
+        background-color: #003f8c !important;
+
+        .bdp-btn-text {
+          color: #fff !important;
+
+          &::before {
+            content: url('./assets/btn-icon-active.png') !important;
+          }
+        }
+      }
+
+      .bdp-btn1 {
+        @include bdp-btn;
+
+        .bdp-btn-text {
+          @include bdp-btn-text;
+
+          &::before {
+            @include bdp-btn-icon($iconPath: './assets/btn-icon1.png');
+          }
+        }
+      }
+
+      .bdp-btn2 {
+        @include bdp-btn;
+
+        .bdp-btn-text {
+          @include bdp-btn-text;
+
+          &::before {
+            @include bdp-btn-icon($iconPath: './assets/btn-icon2.png');
+          }
+        }
+      }
+
+      .bdp-btn3 {
+        @include bdp-btn;
+
+        .bdp-btn-text {
+          @include bdp-btn-text;
+
+          &::before {
+            @include bdp-btn-icon($iconPath: './assets/btn-icon3.png');
+          }
+        }
+      }
+    }
+
+    //表格
+    .tabular-part {
+      flex: 4;
+      background-color: #fff;
+      height: 430px;
+      box-shadow: 0px 4px 14px 0px rgba(141, 141, 141, 0.25);
+      border-radius: 10px 10px 10px 10px;
+      opacity: 1;
+      padding: 0 28px 28px 28px;
+      box-sizing: border-box;
+      margin-left: 20px;
+
+      .tp-col {
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .tp-head {
+        @include area-head;
+
+        &::before {
+          @include area-head-icon;
+        }
+      }
+
+      .tp-head-noicon {
+        @include area-head($marginLeft: 0);
+      }
+
+      // 表格样式一
+      .tp-cell1-wrapper {
+        height: 53px;
+        background-color: #f0f5ff;
+        font-size: 18px;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: #393d5e;
+        line-height: 53px;
+        margin: 0;
+      }
+
+      .tp-cell {
+        padding-left: 15px;
+        box-sizing: border-box;
+      }
+
+      .tp-cell-noIcon {
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      // 表格样式二
+      .tp-cell2-wrapper {
+        height: 53px;
+        background-color: #fff;
+        font-size: 16px;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: #424565;
+        line-height: 53px;
+        margin: 0;
+      }
+    }
+  }
+
+  // 第二行
+  .content-line2 {
+    // background-color: chartreuse;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    .chart-wrapper {
+      flex: 1;
+      height: 510px;
+      // background: cornflowerblue;
+      background-color: #fff;
+      box-shadow: 0px 4px 14px 0px rgba(141, 141, 141, 0.25);
+      border-radius: 10px 10px 10px 10px;
+      padding: 0 20px 20px;
+      box-sizing: border-box;
+      margin-left: 20px;
+      &:first-child {
+        margin-left: 0;
+      }
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .chart-area-head {
+        @include area-head;
+        width: 100%;
+
+        &::before {
+          @include area-head-icon;
+        }
+      }
+
+      .chart-content {
+        height: 100%;
+      }
+    }
+  }
+}

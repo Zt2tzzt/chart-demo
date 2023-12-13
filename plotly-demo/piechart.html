@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>plotly pie chart</title>
+  </head>
+  <body>
+    <div id="tester" style="height: 600px; background-color: bisque"></div>
+
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <script>
+      let data = [
+        {
+          values: [8, 5, 7, 10],
+          labels: ['2A', '2B', '1A', '1B'],
+          type: 'pie',
+          hole: 0.4, // 这将创建一个空洞，将饼状图转变为甜甜圈图
+          textinfo: 'value',
+          textfont: {
+            color: ['#fff', '#fff', '#fff', '#fff'] // 指定每个标签的颜色
+          },
+          marker: {
+            colors: ['#5cd6b1', '#ffc978', `#7c98fc`, `#dd95ff`] // 指定各个区域的颜色
+          },
+          textposition: 'inside',
+          automargin: true
+        }
+      ]
+
+      let layout = {
+        title: '',
+        margin: {
+          l: 30, // left margin
+          r: 30, // right margin
+          b: 0, // bottom margin
+          t: 0, // top margin
+          pad: 4
+        },
+        annotations: [
+          {
+            text: '单位：百万元',
+            font: {
+              size: 14,
+              color: '#424565'
+            },
+            showarrow: false,
+            xref: 'paper',
+            yref: 'paper',
+            x: 0.5,
+            y: -0.02,
+            xanchor: 'center', // 文字左对齐
+            yanchor: 'top' // 文字底部对齐
+          }
+        ],
+        legend: {
+          // y: 0.5,
+          yref: 'paper',
+          font: { size: 15 },
+          itemspacing: 200, // 图例之间的间距，单位为像素
+
+          x: 0.5, // 图例在 x 轴的位置
+          y: -0.1, // 图例在 y 轴的位置
+          xanchor: 'center', // 将图例的锚点设置为中心，以使其居中
+          yanchor: 'top', // 将图例的锚点设置在顶部，使其在底部对齐
+          orientation: 'h' // 设置图例的方向为横向
+        }
+      }
+
+      Plotly.newPlot('tester', data, layout)
+    </script>
+  </body>
+</html>

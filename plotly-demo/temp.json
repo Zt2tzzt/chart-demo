@@ -1,0 +1,77 @@
+{
+  "title": {
+    "text": "库存库龄分布",
+    "x": 0.5,
+    "y": 0.95,
+    "font": {
+      "family": "Arial",
+      "size": 24,
+      "color": "#393D5E"
+    }
+  },
+  "autoSize": true,
+  "barmode": "stack",
+  "margin": {
+    "l": 30,
+    "r": 40,
+    "b": 0,
+    "t": 0,
+    "pad": 4
+  },
+  "annotations": [
+    {
+      "text": "",
+      "showarrow": false,
+      "xref": "paper",
+      "yref": "paper",
+      "x": 0.01,
+      "y": 1,
+      "xanchor": "right",
+      "yanchor": "bottom"
+    },
+    {
+      "text": "",
+      "showarrow": false,
+      "xref": "paper",
+      "yref": "paper",
+      "x": 0.98,
+      "y": 1,
+      "xanchor": "left",
+      "yanchor": "bottom"
+    }
+  ],
+  "xaxis": {
+    "title": "",
+    "tickfont": {
+      "size": 10
+    }
+  },
+  "yaxis": {
+    "title": "",
+    "tickfont": {
+      "size": 10
+    }
+  },
+  "yaxis2": {
+    "title": "",
+    "tickformat": "%",
+    "tickfont": {
+      "size": 10
+    },
+    "overlaying": "y",
+    "side": "right"
+  },
+  "legend": {
+    "yref": "paper",
+    "font": {
+      "size": 10
+    },
+    "itemheight": 10,
+    "itemspacing": 200,
+    "x": 0.5,
+    "y": -0.1,
+    "xanchor": "center",
+    "yanchor": "top",
+    "orientation": "h"
+  }
+}

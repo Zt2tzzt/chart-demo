@@ -1,0 +1,61 @@
+@import 'custom-variables';
+@import 'global-mixin';
+@import 'home-page';
+@import 'wms-bi1';
+@import 'wms-bi2';
+@import 'wms-bi3';
+
+@font-face {
+  font-family: 'YouSheBiaoTiHei';
+  src: url('./assets/YouSheBiaoTiHei.ttf');
+}
+
+@font-face {
+  font-family: 'PingFang SC';
+  src: url('./assets/苹方黑体-准-简.ttf');
+}
+
+.head-wrapper {
+  background-color: #fff;
+  position: relative;
+  height: 80px;
+  box-shadow: 0px 4px 14px 0px rgba(141, 141, 141, 0.25);
+  border: 1px solid #ffffff;
+  // margin-bottom: 20px;
+
+  .head-title {
+    height: 38px;
+    font-family: YouSheBiaoTiHei;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 38px;
+    background: linear-gradient(0deg, #003f8c 0%, #347ad0 100%);
+    -webkit-background-clip: text;
+    background-clip: text; /* Standard syntax */
+    -webkit-text-fill-color: transparent;
+
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  .update-date {
+    // background-color: aqua;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 20px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.loginpage-right {
+  flex: 0.5;
+}
+
+.loginpage-image {
+  background: left/cover no-repeat url(./resources/work-do-more.jpeg);
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+}
