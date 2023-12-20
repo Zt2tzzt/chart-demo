@@ -34,9 +34,12 @@
         }
       }
 
+      const xValues = ['分类1', '分类2', '分类3']
+      const yValues = [8, 6, 10]
       let trace3 = {
-        x: ['分类1', '分类2', '分类3'],
-        y: [8, 6, 10],
+        x: xValues,
+        y: yValues,
+        text: [8, 6, 10],
         name: '折线图1',
         type: 'scatter', // 将类型设置为 'scatter' 以创建折线图
         mode: 'lines+markers', // 叠加线和点
@@ -50,6 +53,7 @@
       }
 
       let data = [trace3, trace1, trace2]
+      // let data = [trace3]
 
       let layout = {
         // title: '柱形图&折线图',
@@ -82,14 +86,14 @@
             y: 1, // y 位置，从下方计算
             xanchor: 'left', // 文字左对齐
             yanchor: 'bottom' // 文字底部对齐
-          }
+          },
         ],
         xaxis: { title: '' },
         yaxis: { title: '' },
         yaxis2: {
           title: '',
           overlaying: 'y',
-          tickformat: '.0%', // 添加百分号
+          // tickformat: '.0%', // 添加百分号
           side: 'right'
         },
         legend: {
@@ -107,6 +111,24 @@
       }
 
       let config = { responsive: true }
+
+      // 添加每个点的文本标签
+      /* for (var i = 0; i < xValues.length; i++) {
+        var annotation = {
+          x: xValues[i],
+          y: yValues[i],
+          text: yValues[i].toString(), // 将点的值作为文本标签
+          showarrow: false,
+          font: {
+            size: 22,
+            color: 'black'
+          }
+        };
+
+        // 添加注释
+        layout.annotations.push(annotation);
+      } */
+
       Plotly.newPlot('tester', data, layout, config)
     </script>
   </body>
